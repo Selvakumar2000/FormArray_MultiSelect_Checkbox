@@ -1,5 +1,4 @@
-<app-home-page></app-home-page>
-<!-- <div class="container" [formGroup]="billForm">
+<div class="container" [formGroup]="billForm">
   <div class="row mt-5">
     <div class="col-md-6">
       <select class="form-select" formControlName="order"(change)=changeOrder($event)>
@@ -11,9 +10,9 @@
   </div>
   <div class="row mt-2">
     <div class="col-md-6" formArrayName="checkboxes">
-      <div *ngFor="let checkbox of getControls(); let i = index">
+      <div *ngFor="let checkboxControl of getControls(); let i = index;" [formGroupName]="i">
         <label>
-          <input type="checkbox" [formControlName]="i"
+          <input type="checkbox" formControlName="isSelect"
             (change)="onCheckboxChange($event, i)"
           >
           {{ orders[i].name }}
@@ -21,11 +20,11 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row mt-2">
     <div class="col-md-6">
       <label>
         <input type="text" class="form-control" (input)="submit()">
       </label>
     </div>
   </div>
-</div> -->
+</div>
